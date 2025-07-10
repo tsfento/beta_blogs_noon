@@ -12,9 +12,13 @@ class BlogsController < ApplicationController
   end
 
   def create
-    blog = Blog.create(blog_params)
+    blog = Blog.new(blog_params)
 
-    render json: blog
+    if blog.save
+      render json: blog, status: :created
+    else
+      render json: blog.errors, status: :unprocessable_entity
+    end
   end
 
   def update
