@@ -8,5 +8,7 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   # root "posts#index"
 
+  post "/login", to: "sessions#create"
   resources :blogs, only: [ :index, :show, :create, :update, :destroy ]
+  resources :users, only: [ :create ]
 end

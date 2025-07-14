@@ -1,21 +1,23 @@
 class BlogsController < ApplicationController
+  before_action :authenticate_request
+
   def index
     blogs = Blog.all
 
-    render json: blogs
+    render json: BlogBlueprint.render(blogs, view: :normal)
   end
 
   def show
     blog = Blog.find(params[:id])
 
-    render json: blog
+    render json: BlogBlueprint.render(blog, view: :normal)
   end
 
   def create
     blog = Blog.new(blog_params)
 
     if blog.save
-      render json: blog, status: :created
+      render json: BlogBlueprint.render(blog, view: :normal), status: :created
     else
       render json: blog.errors, status: :unprocessable_entity
     end
