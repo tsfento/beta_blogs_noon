@@ -8,9 +8,9 @@
 Rails.application.config.middleware.insert_before 0, Rack::Cors do
   allow do
     origins "http://localhost:4200",
-    "https://fe-beta-blogs-noon.vercel.app",
-    "https://fe-beta-blogs-noon-tyler-fentons-projects.vercel.app/",
-    "https://fe-beta-blogs-noon-git-main-tyler-fentons-projects.vercel.app/"
+            "https://fe-beta-blogs-noon.vercel.app",
+            "https://fe-beta-blogs-noon-tyler-fentons-projects.vercel.app/",
+            "https://fe-beta-blogs-noon-git-main-tyler-fentons-projects.vercel.app/"
 
     resource "*",
       headers: :any,
