@@ -1,0 +1,22 @@
+databases:
+  - name: beta_blogs_noon
+    databaseName: beta_blogs_noon
+    user: beta_blogs_noon
+    plan: free
+
+services:
+  - type: web
+    name: beta_blogs_noon
+    runtime: ruby
+    plan: free
+    buildCommand: './bin/render-build.sh'
+    startCommand: './bin/rails server'
+    envVars:
+      - key: DATABASE_URL
+        fromDatabase:
+          name: beta_blogs_noon
+          property: connectionString
+      - key: RAILS_MASTER_KEY
+        sync: false
+      - key: WEB_CONCURRENCY
+        value: 2
