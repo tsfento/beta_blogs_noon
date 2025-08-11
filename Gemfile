@@ -38,6 +38,7 @@ gem "rack-cors"
 gem "bcrypt"
 gem "jwt"
 gem "blueprinter"
+gem "rack-attack"
 
 group :production do
   gem "pg"
