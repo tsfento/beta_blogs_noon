@@ -9,6 +9,13 @@ Rails.application.routes.draw do
   # root "posts#index"
 
   post "/login", to: "sessions#create"
-  resources :blogs, only: [ :index, :show, :create, :update, :destroy ]
+  resources :blogs do
+    post "like"
+    delete "unlike"
+  end
   resources :users, only: [ :create ]
+
+  scope "web" do
+    get "bootstrap", to: "web#bootstrap"
+  end
 end

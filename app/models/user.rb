@@ -1,6 +1,8 @@
 class User < ApplicationRecord
   has_many :blogs
   has_one :profile
+  has_many :likes
+
   after_create :create_profile
 
   validates :first_name, presence: true
