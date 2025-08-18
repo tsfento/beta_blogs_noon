@@ -7,3 +7,19 @@
 #   ["Action", "Comedy", "Drama", "Horror"].each do |genre_name|
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
+
+User.find_each do |user|
+  rand(1..5).times do
+    blog = user.blogs.create!(
+      title: 'Title',
+      content: 'Content',
+      created_at: 1.month.ago
+    )
+
+    rand(1..10).times do |i|
+      liker = User.offset(rand(User.count)).first
+
+      liker.likes.create!(likeable: blog)
+    end
+  end
+end

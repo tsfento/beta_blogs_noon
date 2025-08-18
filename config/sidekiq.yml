@@ -1,0 +1,5 @@
+:scheduler:
+  :schedule:
+    monthly_report_summary:
+      cron: '0 0 1 * *'
+      class: 'MonthlyReportSummaryJob'

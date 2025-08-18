@@ -40,6 +40,8 @@ gem "jwt"
 gem "blueprinter"
 gem "rack-attack"
 gem "pusher"
+gem "sidekiq"
+gem "sidekiq-scheduler"
 
 group :production do
   gem "pg"
