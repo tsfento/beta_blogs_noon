@@ -12,4 +12,19 @@ class ApplicationController < ActionController::API
       render json: { error: "Unauthorized" }, status: :unauthorized
     end
   end
+
+  def render_success(payload:, status: :ok)
+    render json: {
+      success: true,
+      payload:
+    }, status:
+  end
+
+  def render_error(errors:, status: :internal_server_error)
+    render json: {
+      success: false,
+      errors:,
+      status:
+    }, status:
+  end
 end
